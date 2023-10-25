@@ -142,12 +142,15 @@ int main()
 		inputState.applyPending();	   // (<- applies pending inputs from previous iteration)
 		inputState.pollEvents(window); // Update the window inputs
 
+		bot.connect(); // Attempt to connect to dobot
+		bot.ping();	   // (<- verifies that dobot is still connected)
+
+		//After the HOME, moove dobot to a better position before starting
+		bot.moveTo(bot.getHighAmmoPos(0, 0));
+
 		if (p4ui::uiState == p4ui::UIState::P4) {
 
-			
-			bot.connect(); // Attempt to connect to dobot
-			bot.ping();	   // (<- verifies that dobot is still connected)
-			
+
 			cvimage debugImg;
 			
 			p4::states::uiExchange exchange;

@@ -77,7 +77,19 @@ p4::states::nState p4::states::tick(dobot& _dobot, cvimage& _debugImg, uiExchang
 
 			bool foundAmmoPos = false;
 			uint ammoPosX; uint ammoPosY;
-			for (uint i = 0; i < 2 && !foundAmmoPos; i += 1) { for (uint j = 0; j < 4; j += 1) { if (_exchange.ammoState[i][j]) { foundAmmoPos = true; ammoPosX = i; ammoPosY = j; break; } } }
+			for (uint i = 0; i < 2 && !foundAmmoPos; i += 1) 
+			{
+				for (uint j = 0; j < 4; j += 1) 
+				{
+					if (_exchange.ammoState[i][j]) 
+					{
+						foundAmmoPos = true;
+						ammoPosX = i;
+						ammoPosY = j;
+						break;
+					}
+				}
+			}
 
 			if (foundAmmoPos)
 			{

@@ -689,7 +689,12 @@ void p4ui::updateSettings(ff::vec2u _windowSize, ff::inputstate _inputState) {
 }
 
 void p4ui::initRobotCalibration() {
-	if (!assetFont.loadFromFile("assets/arial.ttf")) { std::cout << "[!] ERROR: couldn't load font 'assets/arial.ttf'\nPlease copy the asset provided folder next to the executable.\n"; ff::sleep(10000); abort(); }
+	if (!assetFont.loadFromFile("assets/arial.ttf"))
+	{
+		std::cout << "[!] ERROR: couldn't load font 'assets/arial.ttf'\nPlease copy the asset provided folder next to the executable.\n";
+		ff::sleep(10000);
+		abort();
+	}
 
 	uiState = p4ui::UIState::CalibrationRobot;
 
@@ -786,6 +791,8 @@ void p4ui::initRobotCalibration() {
 		entityEventsClick.setComponent(idCircle,
 			[](ff::id<entity> _id, ff::eventClickRelease _event)->bool
 			{
+				std::cout << "bouton " << _id;
+				
 				return true;
 			}
 		);
@@ -807,6 +814,8 @@ void p4ui::initRobotCalibration() {
 		entityEventsClick.setComponent(idCircle,
 			[](ff::id<entity> _id, ff::eventClickRelease _event)->bool
 			{
+				std::cout << "bouton " << _id;
+				
 				return true;
 			}
 		);

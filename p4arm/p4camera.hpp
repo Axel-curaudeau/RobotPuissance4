@@ -1,21 +1,10 @@
-
 #pragma once
 
-
-
-
-
 #include "opencv2/opencv.hpp"
-
-
 #include "bitboard.hpp"
-
-
 #include "ff/fflog.hpp"
-
 #include <SFML/Graphics.hpp>
 #include <vector>
-
 #include "cvimage.hpp"
 
 namespace p4cam
