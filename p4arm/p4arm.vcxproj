@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cvimage.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aiBoardEvaluation.hpp" />
     <ClInclude Include="aiColumnOrder.hpp" />
+    <ClInclude Include="dobot\DobotDll.h" />
     <ClInclude Include="setting.hpp" />
     <ClInclude Include="cvimage.hpp" />
     <ClInclude Include="DobotDll.h" />

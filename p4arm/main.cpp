@@ -113,8 +113,6 @@
 #include <SFML/Window.hpp>
 #include "p4states.hpp"
 
-#include "p4states.hpp"
-
 
 
 
@@ -149,8 +147,6 @@ int main()
 		bot.moveTo(bot.getHighAmmoPos(0, 0));
 
 		if (p4ui::uiState == p4ui::UIState::P4) {
-
-
 			cvimage debugImg;
 			
 			p4::states::uiExchange exchange;
@@ -166,7 +162,7 @@ int main()
 
 			static sf::Texture texture;							 // (<- texture is static to improve performance)
 			sf::Sprite sprite = debugImg.drawToTexture(texture); // Transform the debug image to a sprite
-			
+
 			try {
 				p4ui::updateP4(ff::vec2u(window.getSize().x, window.getSize().y), sprite, bot.isConnected(), state == p4::states::nState::waitingForPlayer, inputState);
 

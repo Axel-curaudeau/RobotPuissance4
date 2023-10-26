@@ -1,7 +1,5 @@
 
 #pragma once
-
-
 #include "p4ai.hpp"
 #include "p4ui.hpp"
 #include "p4dobot.hpp"

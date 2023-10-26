@@ -1,91 +1,8 @@
-#pragma once
+//#include "cvimage.hpp"
 
-#include <iostream>
+//cvimage::cvimage() {}
 
-
-#include <SFML/Graphics.hpp>
-#include "opencv2/opencv.hpp"
-
-#include "ff/ffdynarray.hpp"
-#include "ff/ffcircle.hpp"
-#include "ff/fftime.hpp"
-#include "ff/ffcolor.hpp"
-#include "ff/ffline.hpp"
-
-
-
-
-/// \brief OpenCV image representation
-/// \detail Only represents BGR (almost like rgb) images
-struct cvimage
-{
-	enum class nWebcam { disconnected, fpsLimited, ok };
-
-
-	cv::Mat img;
-
-
-	cvimage();
-	cvimage(const cvimage& _other);
-	cvimage& operator=(const cvimage& _other);
-
-
-
-
-
-	/// \brief Get the size of the current image
-	ff::vec2i size() const;
-
-	/// \brief Load the latest webcam image into this cvimage instance
-	/// \param _cameraIdx: the index of the camera
-	/// \param _cameraFps: set this number to the camera's fps, or lower
-	/// \return "ok" if a frame was obtained, "disconnected"/"fpsLimited" if not
-	nWebcam getWebcamImage(uint _cameraIdx, uint _cameraFps = 30);
-
-	/// \brief Resize the current image
-	/// \param _newSize: size to resize the image to
-	void resize(ff::vec2i _newSize);
-
-	/// \brief Blur the current image
-	/// \param _size: How many surrounding pixels to blur
-	void blur(uint _size);
-
-	/// \brief Brighten/darken the current image
-	/// \param _brightness: [-1.0, 1.0], 1.0 makes the image fully white, -1.0 fully black
-	void changeBrightness(double _brightness);
-
-	/// \brief Contrasts the image (multiplication of each pixel by this value)
-	/// \param _contrast: [0.0, +]
-	void changeContrast(double _contrast);
-
-	/// \brief Average the current image with another image
-	/// \param _previousImg: the other base image to average with
-	/// \param _weight: [0.0, 1.0], 0.0 will keep previous image only, 1.0 will keep current image only, 0.5 will average them both equally, 0.2 will keep 20% of the current image and 80% of the previous image
-	void denoiseTemporal(cvimage _previousImg, double _weight = 0.2f);
-
-	/// \brief Get a list of all detected circles in the image
-	ff::dynarray<ff::circlef> detectCircles() const;
-
-	/// \brief Draw a pixel on the current image
-	void drawPixel(ff::vec2i _pos, ff::color _color = ff::color::lightGray());
-
-	/// \brief Draw a circle on the current image (kind of)
-	void drawCircle(ff::circlef _circle, ff::color _color = ff::color::lightGray());
-
-	/// \brief Draw a line on the current image
-	void drawLine(ff::linef _line, ff::color _color = ff::color::lightGray());
-
-	/// \brief Draw the current image to a texture and obtain its corresponding sprite (warning: the sprite references the texture)
-	sf::Sprite drawToTexture(sf::Texture& _texture);
-
-	/// \brief Save the current image to a file
-	void save(ff::string _filename);
-
-	/// \brief Load an image file
-	void load(ff::string _filename);
-};
-
-cvimage::cvimage(){}
+/*
 cvimage::cvimage(const cvimage& _other) { img = _other.img.clone(); }
 cvimage& cvimage::operator=(const cvimage& _other) { img = _other.img.clone(); return *this; }
 ff::vec2i cvimage::size() const { ff::vec2i result; result.x = img.cols; result.y = img.rows; return result; }
@@ -271,3 +188,4 @@ void cvimage::load(ff::string _filename)
 	}
 }
 
+*/
